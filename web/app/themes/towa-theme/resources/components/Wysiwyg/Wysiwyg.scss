@@ -1,0 +1,114 @@
+@import '@styles/globals/_animations.scss';
+@import '@styles/globals/_blockquote.scss';
+@import '@styles/globals/_buttons.scss';
+@import '@styles/globals/_colors.scss';
+@import '@styles/globals/_elements.scss';
+@import '@styles/globals/_fonts.scss';
+@import '@styles/globals/_grid.scss';
+@import '@styles/globals/_hover.scss';
+@import '@styles/globals/_icons.scss';
+@import '@styles/globals/_media-queries.scss';
+@import '@styles/globals/_wysiwyg.scss';
+
+.Wysiwyg {
+  @include wysiwyg;
+
+  // same css is used for backend wysiwyg,
+  // spaces and max-width shouldn't be visible there
+  &:not(.wp-editor) {
+    @include grid-content;
+  }
+
+  &__button,
+  &__button-secondary {
+    margin: $grid-gutter-phone $grid-gutter-phone $grid-gutter-phone 0;
+
+    @include media('>=md') {
+      margin: $grid-gutter-tablet $grid-gutter-tablet $grid-gutter-tablet 0;
+    }
+
+    @include media('>=xl') {
+      margin: $grid-gutter-desktop $grid-gutter-desktop $grid-gutter-desktop 0;
+    }
+  }
+
+  &__button {
+    @include button;
+  }
+
+  &__button-secondary {
+    @include button-secondary;
+  }
+
+  h2 {
+    @include font-h2;
+
+    margin-top: 40px;
+  }
+
+  h3 {
+    @include font-h3;
+
+    margin-top: 30px;
+  }
+
+  h4 {
+    @include font-h4;
+
+    margin-top: 20px;
+  }
+
+  h5 {
+    @include font-h5;
+
+    margin-top: 10px;
+  }
+
+  table {
+    @include grid-content;
+
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    text-align: center;
+    table-layout: fixed;
+
+    @include media('>=lg') {
+      display: table;
+    }
+
+    thead {
+      white-space: nowrap;
+
+      @include media('>=md') {
+        white-space: normal;
+      }
+    }
+
+    th,
+    td {
+      box-sizing: border-box;
+      min-width: 220px;
+      padding: 20px;
+      border: 1px solid $color-bg;
+    }
+
+    th {
+      @include element-base;
+      @include font-micro($color-white);
+    }
+  }
+
+  blockquote {
+    @include blockquote-content;
+  }
+
+  .button {
+    @include button;
+  }
+
+  .button--secondary {
+    @include button-secondary;
+  }
+}

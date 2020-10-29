@@ -1,0 +1,11 @@
+@import 'fonts';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @include font-text;
+
+  overflow-x: hidden;
+}

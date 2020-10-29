@@ -1,0 +1,15 @@
+{
+  "baseUrl": ".",
+  "include": ["resources/**/*"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es6",
+    "module": "es6",
+    "paths": {
+      "resources/*": ["resources/*"],
+      "assets/*": ["resources/assets/*"],
+      "components/*": ["resources/components/*"],
+      "styles/*": ["resources/styles/*"]
+    }
+  }
+}

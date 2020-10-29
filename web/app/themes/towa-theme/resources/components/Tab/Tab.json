@@ -1,0 +1,30 @@
+{
+  "title": "Sektion: Tab",
+  "items": [
+    {
+      "title": "Tab 1",
+      "slug": "tab-1",
+      "text": "Tab 1: Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dicta placeat architecto odit sint accusantium molestiae, asperiores similique non hic mollitia ipsum autem eligendi omnis veritatis quis, unde deleniti atque."
+    },
+    {
+      "title": "Tab 2",
+      "slug": "tab-2",
+      "text": "Tab 2: Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dicta placeat architecto odit sint accusantium molestiae, asperiores similique non hic mollitia ipsum autem eligendi omnis veritatis quis, unde deleniti atque."
+    },
+    {
+      "title": "Tab 3",
+      "slug": "tab-3",
+      "text": "Tab 3: Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dicta placeat architecto odit sint accusantium molestiae, asperiores similique non hic mollitia ipsum autem eligendi omnis veritatis quis, unde deleniti atque."
+    },
+    {
+      "title": "Tab 4",
+      "slug": "tab-4",
+      "text": "Tab 4: Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dicta placeat architecto odit sint accusantium molestiae, asperiores similique non hic mollitia ipsum autem eligendi omnis veritatis quis, unde deleniti atque."
+    },
+    {
+      "title": "Tab 5",
+      "slug": "tab-5",
+      "text": "Tab 5: Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dicta placeat architecto odit sint accusantium molestiae, asperiores similique non hic mollitia ipsum autem eligendi omnis veritatis quis, unde deleniti atque."
+    }
+  ]
+}

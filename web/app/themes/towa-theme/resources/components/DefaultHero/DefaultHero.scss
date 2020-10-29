@@ -1,0 +1,62 @@
+@import '@styles/globals/_colors.scss';
+@import '@styles/globals/_fonts.scss';
+@import '@styles/globals/_gradients.scss';
+@import '@styles/globals/_grid.scss';
+@import '@styles/globals/_utils.scss';
+@import '@styles/globals/_media-queries.scss';
+
+.DefaultHero {
+  position: relative;
+  color: $color-white;
+
+  &__picture {
+    // image overlay
+    &::after {
+      @include util-cover;
+      @include gradient-bg;
+
+      content: '';
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__inner {
+    @include util-center;
+    @include grid-width;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    padding-bottom: $grid-space-phone;
+
+    @include media('>=md') {
+      padding-bottom: $grid-space-tablet;
+    }
+
+    @include media('>=xl') {
+      padding-bottom: $grid-space;
+    }
+  }
+
+  &__subtitle {
+    @include font-micro($color-white);
+
+    margin-bottom: $grid-gutter-phone;
+
+    @include media('>=sm') {
+      margin-bottom: $grid-gutter-tablet;
+    }
+
+    @include media('>=lg') {
+      margin-bottom: $grid-gutter-desktop;
+    }
+  }
+
+  &__title {
+    @include font-h1($color-white);
+  }
+}

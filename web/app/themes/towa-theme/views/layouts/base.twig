@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if IE]>
+<html class="is-ie js" lang="{{ site.language }}">
+<![endif]-->
+<!--[if !(IE)]><!-->
+<html class="js {{is_ie11 ? 'is-ie11' : ''}}" lang="{{ site.language }}">
+<!--<![endif]-->
+
+  {% include get_relative_path( 'partials/head.twig' ) %}
+
+  <body class="{{ body_class }}">
+    {% if env.is_production_stage %}
+      <!-- going to add google tag manager via website-options here -->
+    {% endif %}
+
+    {% include get_relative_path( 'partials/browser-message.twig' ) %}
+    {% include get_relative_path( 'partials/breakpoint-label.twig' ) %}
+
+    <div id="app">
+      {% include path.components ~ 'Nav/Nav.twig' with {nav:primary_menu}%}
+
+      <main role="main">
+        {% block content %}
+          {% include get_relative_path( 'partials/loop-sections.twig' ) %}
+        {% endblock %}
+      </main>
+
+      {% include get_relative_path( 'partials/footer.twig' ) %}
+    </div>
+
+    {{ wp_footer() }}
+  </body>
+</html>

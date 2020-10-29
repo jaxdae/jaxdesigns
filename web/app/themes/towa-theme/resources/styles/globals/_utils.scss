@@ -1,0 +1,78 @@
+@mixin util-clearfix {
+  &::after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+}
+
+@function util-em($size, $context: 16) {
+  @return #{$size / $context}em;
+}
+
+@function util-rem($size, $context: 16) {
+  @return #{$size / $context}rem;
+}
+
+@mixin util-font-size-rem($size, $context: 16) {
+  font-size: #{$size}px;
+  font-size: util-rem($size, $context);
+}
+
+@mixin util-rem($prop, $size, $context: 16, $important: false) {
+  @if $important == true {
+    #{$prop}: #{$size}px !important;
+    #{$prop}: util-rem($size, $context) !important;
+  } @else {
+    #{$prop}: #{$size}px;
+    #{$prop}: util-rem($size, $context);
+  }
+}
+
+@mixin util-cover() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin util-center($direction: 'both') {
+  position: absolute;
+
+  @if ($direction == 'both') {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($direction == 'x') {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($direction == 'y') {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+@mixin hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+@mixin visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+@mixin hide-scrollbar($axis: 'y') {
+  @if $axis == 'y' {
+    overflow-y: scroll;
+  } @else {
+    overflow-x: scroll;
+  }
+
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

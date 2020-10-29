@@ -1,0 +1,12 @@
+{
+  "title": "Sektion: Video",
+  "video_id": "tsFeIVJfKsA",
+  "do_autoplay": false,
+  "image": {
+    "sizes": {
+      "i480x270": "https://dummyimage.com/480x270/1D1D1B/fff",
+      "i768x432": "https://dummyimage.com/768x432/1D1D1B/fff",
+      "i920x517": "https://dummyimage.com/920x517/1D1D1B/fff"
+    }
+  }
+}

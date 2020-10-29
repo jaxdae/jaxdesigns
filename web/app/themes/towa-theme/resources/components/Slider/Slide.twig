@@ -1,0 +1,25 @@
+<div class="Slider__slide">
+	{% if slide.title %}
+		<h3>{{slide.title}}</h3>
+	{% endif %}
+
+	{% if slide.image %}
+		<picture class="Slider__picture">
+			<source media="(max-width: 480px)" srcset="{{ slide.image.sizes.i480x270 }}">
+			<source media="(max-width: 768px)" srcset="{{ slide.image.sizes.i768x432 }}">
+			<img src="{{ slide.image.sizes.i1440x810 }}" alt="{{ slide.image.alt }}" class="Slider__img"/>
+		</picture>
+	{% endif %}
+
+	{% if slide.Content %}
+		<div class="Wyswiyg">
+			{{slide.Content}}
+		</div>
+	{% endif %}
+
+	{% if slide.link %}
+		<a href="{{slide.link.url}}" target="{{slide.link.target}}" title="{{slide.link.title}}">
+			{{slide.link.title}}
+		</a>
+	{% endif %}
+</div>

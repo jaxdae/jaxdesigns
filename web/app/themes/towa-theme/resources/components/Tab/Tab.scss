@@ -1,0 +1,58 @@
+@import '@styles/globals/_animations.scss';
+@import '@styles/globals/_elements.scss';
+@import '@styles/globals/_fonts.scss';
+@import '@styles/globals/_grid.scss';
+@import '@styles/globals/_colors.scss';
+@import '@styles/globals/_media-queries.scss';
+
+.Tab {
+  display: none;
+
+  @include media('>=sm') {
+    @include grid-content;
+
+    display: block;
+  }
+
+  &__items {
+    display: flex;
+  }
+
+  &__item {
+    @include element-base;
+    @include element-clickable;
+    @include font-micro;
+
+    flex: 1;
+    min-width: 0;
+    background-color: $color-white;
+    border-color: $color-border;
+    border-right: 0;
+
+    &:last-of-type {
+      border-right: 1px solid $color-border;
+    }
+
+    &--active {
+      color: $color-white;
+      background-color: $color-brand;
+    }
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
+
+  &__wrapper {
+    margin-top: $grid-gutter-desktop * 2;
+  }
+
+  &__content {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+}

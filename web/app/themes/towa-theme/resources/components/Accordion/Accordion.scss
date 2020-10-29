@@ -1,0 +1,89 @@
+@import '@styles/globals/_animations.scss';
+@import '@styles/globals/_colors';
+@import '@styles/globals/_elements';
+@import '@styles/globals/_fonts';
+@import '@styles/globals/_hover';
+@import '@styles/globals/_grid';
+@import '@styles/globals/_icons';
+@import '@styles/globals/_media-queries';
+@import '@styles/globals/_wysiwyg';
+
+.Accordion {
+  @include grid-content;
+
+  &--invisible-desktop {
+    @include media('>=sm') {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    @include animation-slow;
+
+    max-height: 0;
+    border: 1px solid $color-transparent;
+    border-top: 0;
+  }
+
+  &__wysiwyg {
+    @include wysiwyg;
+    @include animation-slow;
+
+    padding: $grid-gutter-phone;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-10px);
+
+    @include media('>=sm') {
+      padding: $grid-gutter-tablet;
+    }
+
+    @include media('>=lg') {
+      padding: $grid-gutter-desktop;
+    }
+  }
+
+  &__item {
+    margin-bottom: $grid-gutter-phone;
+
+    @include media('>=sm') {
+      margin-bottom: $grid-gutter-tablet;
+    }
+
+    @include media('>=lg') {
+      margin-bottom: $grid-gutter-desktop;
+    }
+
+    &--open {
+      .Accordion__wrapper {
+        max-height: 500px;
+        border-color: $color-border;
+      }
+      .Accordion__wysiwyg {
+        pointer-events: all;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__title {
+    @include element-base;
+    @include element-clickable;
+    @include font-micro($color-white);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    &::after {
+      @include icon-font;
+
+      font-size: 30px;
+      line-height: 0;
+      color: $color-white;
+      content: $icon-angle-down;
+    }
+  }
+}

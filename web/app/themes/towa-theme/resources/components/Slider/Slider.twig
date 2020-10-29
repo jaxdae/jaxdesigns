@@ -1,0 +1,15 @@
+<section class="Slider">
+  {% if slides|length == 1 %}
+    <div class="Slider__container">
+      {% include path.components ~ 'Slider/Slide.twig' with {slide:slides.0} %}
+    </div>
+  {% else %}
+    <slider with-pagination with-navigation>
+      <template v-slot:slides>
+        {% for slide in slides %}
+          {% include path.components ~ 'Slider/Slide.twig' with slide %}
+        {% endfor %}
+      </template>
+    </slider>
+  {% endif %}
+</section>

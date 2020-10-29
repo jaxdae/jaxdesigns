@@ -1,0 +1,15 @@
+<video-module
+  player-id="player-{{ section_id(counter) }}"
+  video-id="{{ video_id }}"
+  :image="{{ image | json_encode | e }}"
+>
+  {% if caption or caption_bold %}
+    <figcaption class="Video__caption">
+      {% if caption_bold %}
+        <b class="Video__caption-bold">{{ caption_bold }}</b>
+      {% endif %}
+
+      {{ caption }}
+    </figcaption>
+  {% endif %}
+</video-module>

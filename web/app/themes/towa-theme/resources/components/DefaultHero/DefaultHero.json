@@ -1,0 +1,13 @@
+{
+  "title": "This is the Frontend Template",
+  "subtitle": "views/templates/components.twig",
+  "image": {
+    "sizes": {
+      "i320x245": "https://dummyimage.com/320x245/1D1D1B/fff",
+      "i480x480": "https://dummyimage.com/480x480/1D1D1B/fff",
+      "i920x517": "https://dummyimage.com/920x517/1D1D1B/fff",
+      "i1440x810": "https://dummyimage.com/1440x810/1D1D1B/fff",
+      "i1920x640": "https://dummyimage.com/1920x640/1D1D1B/fff"
+    }
+  }
+}

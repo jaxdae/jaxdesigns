@@ -1,0 +1,24 @@
+{% extends get_relative_path( 'layouts/base.twig' ) %}
+{% import _self as frontend %}
+
+{% block content %}
+  {{ frontend.include_component('Nav', path) }}
+  {{ frontend.include_component('DefaultHero', path) }}
+
+  <section>
+    <div class="Content">
+      {{ frontend.include_component('Wysiwyg', path) }}
+      {{ frontend.include_component('Blockquote', path) }}
+      {{ frontend.include_component('Accordion', path) }}
+      {{ frontend.include_component('Tab', path) }}
+      {{ frontend.include_component('Downloads', path) }}
+      {{ frontend.include_component('Image', path) }}
+      {{ frontend.include_component('Video', path) }}
+    </div>
+  </section>
+{% endblock %}
+
+{% macro include_component(name, path) %}
+  {% set data = load_component_json(source('resources/components/' ~ name ~ "/" ~ name ~ ".json"), path) %}
+  {% include 'resources/components/' ~ name ~ "/" ~ name ~ ".twig" with data %}
+{% endmacro %}

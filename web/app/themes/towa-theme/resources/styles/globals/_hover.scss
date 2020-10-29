@@ -1,0 +1,21 @@
+@mixin hover-link() {
+  @include animation-fast-in-slow-out;
+
+  &:hover {
+    color: $color-link-hover;
+  }
+}
+
+@mixin hover-image() {
+  overflow: hidden;
+
+  img {
+    @include animation-fast-in-slow-out;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+  }
+}

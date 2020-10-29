@@ -1,0 +1,38 @@
+@mixin blockquote-content {
+  position: relative;
+  display: block;
+
+  p {
+    @include font-blockquote;
+
+    position: relative;
+
+    @include media('>=md') {
+      width: 80%;
+    }
+
+    &::before,
+    &::after {
+      @include icon-font;
+
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    &::before {
+      content: $icon-angle-double-right;
+    }
+
+    &::after {
+      content: $icon-angle-double-left;
+    }
+  }
+
+  footer {
+    @include font-text;
+
+    @include media('>=md') {
+      width: 80%;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<section class="Accordion {{ invisibleDesktop ? 'Accordion--invisible-desktop' : '' }}" data-component="Accordion">
+  <div class="Accordion__items">
+    {% for item in items %}
+      <div class="Accordion__item{% if loop.first %} Accordion__item--open{% endif %}">
+        <button class="Accordion__title">{{ item.title }}</button>
+        <div class="Accordion__wrapper">
+          <div class="Accordion__wysiwyg">
+            {{ item.text }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

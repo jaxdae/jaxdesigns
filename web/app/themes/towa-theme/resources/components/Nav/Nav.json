@@ -1,0 +1,105 @@
+{
+  "title": "Sektion: Nav",
+  "nav": [
+    {
+      "id": 1,
+      "url": "#",
+      "target": "blank",
+      "name": "Navitem 1"
+    },
+    {
+      "id": 2,
+      "url": "#",
+      "target": "blank",
+      "name": "Navitem 2",
+      "children": [
+        {
+          "id": 11,
+          "url": "#",
+          "target": "blank",
+          "name": "Subnavitem 1"
+        },
+        {
+          "id": 12,
+          "url": "#",
+          "target": "blank",
+          "name": "Subnavitem 2"
+        },
+        {
+          "id": 13,
+          "url": "#",
+          "target": "blank",
+          "name": "Subnavitem 3"
+        },
+        {
+          "id": 14,
+          "url": "#",
+          "target": "blank",
+          "name": "Subnavitem 4"
+        },
+        {
+          "id": 15,
+          "url": "#",
+          "target": "blank",
+          "name": "Subnavitem 5"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "url": "#",
+      "target": "blank",
+      "name": "Navitem 3",
+      "children": [
+        {
+          "id": 11,
+          "url": "#",
+          "target": "blank",
+          "name": "Subnavitem 1"
+        },
+        {
+          "id": 12,
+          "url": "#",
+          "target": "blank",
+          "name": "Subnavitem 2"
+        },
+        {
+          "id": 13,
+          "url": "#",
+          "target": "blank",
+          "name": "Subnavitem 3"
+        },
+        {
+          "id": 14,
+          "url": "#",
+          "target": "blank",
+          "name": "Subnavitem 4"
+        },
+        {
+          "id": 15,
+          "url": "#",
+          "target": "blank",
+          "name": "Subnavitem 5"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "url": "#",
+      "target": "blank",
+      "name": "Navitem 4"
+    },
+    {
+      "id": 5,
+      "url": "#",
+      "target": "blank",
+      "name": "Navitem 5"
+    },
+    {
+      "id": 6,
+      "url": "#",
+      "target": "blank",
+      "name": "Navitem 6"
+    }
+  ]
+}

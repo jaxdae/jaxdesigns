@@ -1,0 +1,17 @@
+{# show accordion on mobile breakpoints #}
+{% include path.components ~ 'Accordion/Accordion.twig' with { 'invisibleDesktop': true } %}
+
+<section class="Tab" data-component="Tab">
+  <div class="Tab__items">
+    {% for key, tab in items %}
+      <button class="Tab__item {{ loop.first ? 'Tab__item--active' : '' }}">{{ tab.title }}</button>
+    {% endfor %}
+  </div>
+  <div class="Tab__wrapper">
+    {% for key, tab in items %}
+      <div class="Tab__content {{ loop.first ? 'Tab__content--active' : '' }}">
+        {{ tab.text }}
+      </div>
+    {% endfor %}
+  </div>
+</section>

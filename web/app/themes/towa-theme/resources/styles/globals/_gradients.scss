@@ -1,0 +1,5 @@
+@import 'colors';
+
+@mixin gradient-bg {
+  background-color: $color-bg;
+}

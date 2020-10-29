@@ -1,0 +1,15 @@
+<section class="DefaultHero">
+  <picture class="DefaultHero__picture">
+    <source media="(max-width: 480px)" srcset="{{ image.sizes.i480x480 }}">
+    <source media="(max-width: 920px)" srcset="{{ image.sizes.i920x517 }}">
+    <source media="(max-width: 1440px)" srcset="{{ image.sizes.i1440x810 }}">
+    <img class="DefaultHero__image" src="{{ image.sizes.i1920x640 }}" alt="{{ image.alt }}" title="{{ image.caption }}">
+  </picture>
+  <div class="DefaultHero__inner">
+    {% if subtitle %}
+    <p class="DefaultHero__subtitle">{{ subtitle }}</p>
+    {% endif %}
+
+    <h1 class="DefaultHero__title">{{ title }}</h1>
+  </div>
+</section>

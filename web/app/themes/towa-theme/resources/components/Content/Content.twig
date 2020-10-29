@@ -1,0 +1,5 @@
+<article class="Content">
+  {% for section in content_components %}
+    {% include section.view ignore missing with section %}
+  {% endfor %}
+</article>

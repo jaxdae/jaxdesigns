@@ -1,0 +1,7 @@
+@import '@styles/globals/_colors.scss';
+@import '@styles/globals/_fonts.scss';
+@import '@styles/globals/_media-queries.scss';
+
+.Title {
+  @include font-h2;
+}

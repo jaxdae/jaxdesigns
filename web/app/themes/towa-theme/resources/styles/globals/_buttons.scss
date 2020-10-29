@@ -1,0 +1,51 @@
+@mixin button-base {
+  @include element-base;
+  @include font-micro;
+  @include animation-fast-in-slow-out;
+
+  display: block;
+  text-align: center;
+
+  @include media('>=xs') {
+    display: inline-block;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+@mixin button-primary-colors {
+  color: $color-white;
+  background-color: $color-brand;
+}
+
+@mixin button-secondary-colors {
+  color: $color-brand;
+  background-color: $color-white;
+}
+
+@mixin button {
+  @include button-base;
+  @include button-primary-colors;
+
+  &:hover,
+  &:focus {
+    @include button-secondary-colors;
+
+    cursor: pointer;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  @include button-secondary-colors;
+
+  &:hover,
+  &:focus {
+    @include button-primary-colors;
+
+    cursor: pointer;
+  }
+}

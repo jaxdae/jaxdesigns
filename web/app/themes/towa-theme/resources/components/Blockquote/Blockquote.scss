@@ -1,0 +1,11 @@
+@import '@styles/globals/_blockquote.scss';
+@import '@styles/globals/_colors.scss';
+@import '@styles/globals/_fonts.scss';
+@import '@styles/globals/_grid.scss';
+@import '@styles/globals/_icons.scss';
+@import '@styles/globals/_media-queries.scss';
+
+.Blockquote {
+  @include grid-content;
+  @include blockquote-content;
+}

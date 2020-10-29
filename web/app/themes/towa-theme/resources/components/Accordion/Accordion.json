@@ -1,0 +1,26 @@
+{
+  "title": "Sektion: Accordion",
+  "counter": "1",
+  "items": [
+    {
+      "title": "Accordion",
+      "text": "<strong>Lorem ipsum dolor sit</strong> amet consectetur adipisicing elit. Labore, ipsam. Ipsa, laboriosam perferendis id quas quos aperiam fugit assumenda eos ad neque tenetur consectetur eligendi corporis! Recusandae sint provident ipsum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, ipsam. Ipsa, laboriosam perferendis id quas quos aperiam fugit assumenda eos ad neque tenetur consectetur eligendi corporis! Recusandae sint provident ipsum."
+    },
+    {
+      "title": "Title",
+      "text": "Lorem ipsum dolor sit amet <em>consectetur adipisicing</em> elit. Labore, ipsam. Ipsa, laboriosam perferendis id quas quos aperiam fugit assumenda eos ad neque tenetur consectetur eligendi corporis!"
+    },
+    {
+      "title": "Accordion",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href='#'>Labore, ipsam.</a> Ipsa, laboriosam perferendis id quas quos aperiam fugit assumenda eos ad neque tenetur laboriosam perferendis id quas quos aperiam fugit assumenda eos ad neque tenetur consectetur eligendi corporis! Recusandae sint provident ipsum."
+    },
+    {
+      "title": "Accordion",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, ipsam. Ipsa, laboriosam perferendis id quas quos aperiam fugit assumenda eos ad neque tenetur consectetur eligendi corporis! Recusandae sint provident ipsum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, ipsam. Ipsa, laboriosam perferendis id quas quos aperiam fugit assumenda eos ad neque tenetur consectetur eligendi corporis! Recusandae sint provident ipsum."
+    }
+  ],
+  "component": {
+    "name": "Accordion",
+    "options": {}
+  }
+}

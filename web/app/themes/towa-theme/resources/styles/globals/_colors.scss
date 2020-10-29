@@ -1,0 +1,17 @@
+// colors
+$color-black: #000;
+$color-white: #fff;
+$color-transparent: rgba($color-white, 0);
+
+// semantic colors
+$color-bg: rgba($color-black, 0.3);
+$color-border: rgba($color-black, 0.3);
+$color-brand: $color-black;
+$color-element-hover: #2f2f2f;
+$color-error: $color-black;
+$color-headline: $color-brand;
+$color-link-hover: rgba($color-black, 0.8);
+$color-link: $color-black;
+$color-overlay: $color-black;
+$color-shadow: rgba($color-black, 0.3);
+$color-text: rgba($color-black, 0.8);

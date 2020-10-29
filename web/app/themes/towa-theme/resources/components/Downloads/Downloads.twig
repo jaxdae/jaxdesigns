@@ -1,0 +1,21 @@
+<section class="Downloads">
+  {% for item in items %}
+    {% if item.exists %}
+      <a class="Downloads__item" href="{{ item.link }}" download>
+        <h4 class="Downloads__name">{{ item.title }}</h4>
+        <p class="Downloads__details">
+          <strong class="Downloads__detail">{{ item.size }}</strong>
+          <strong class="Downloads__detail">{{ item.type }}</strong>
+        </p>
+        <p class="Downloads__icon">
+          <span class="Downloads__text">{{__('Download', 'towa')}}</span>
+        </p>
+      </a>
+    {% else %}
+      {# if download exists but there is no file in the backend #}
+      <span class="Downloads__item">
+        <h4 class="Downloads__name">{{ item.title }}</h4>
+      </span>
+    {% endif %}
+  {% endfor %}
+</section>

@@ -1,0 +1,91 @@
+{% if env.show_bp_badge %}
+  {#
+    info:
+    breakpoints settings are found in
+    lib/Theme/Media.php
+  #}
+
+  {# info: setup max-widths for css #}
+  {% set max_breakpoint = {
+      'min-width': 'xs',
+      'xs': 'sm',
+      'sm': 'md',
+      'md': 'lg',
+      'lg': 'xl',
+      'xl': 'max-width',
+      'max-width': '10000px',
+    }
+  %}
+
+  {# render markup for component #}
+  <div class="BP-Badge">
+    <h6>
+      Breakpoint
+    </h6>
+    {% for k, point in breakpoints %}
+        <span class="is-bp-point is-point-{{ k }}">
+          <span>&gt;&equals; {{ k|split('-')[0] }}</span>
+          <i>{{ point|upper }}</i>
+        </span>
+    {% endfor %}
+  </div>
+
+  {# set inline css, 'cause inject only if needed #}
+  <style type="text/css">
+    .BP-Badge {
+      position: fixed;
+      top: 200px;
+      right: 0;
+      padding: 15px 10px 12px 20px;
+      color:#fff;
+      background: linear-gradient(45deg, rgba(255,146,10,1) 0%,rgb(255, 207, 75) 100%);
+      border-bottom-left-radius: 40px;
+      border-top-left-radius: 4px;
+      text-align: right;
+      z-index: 1000;
+      font-family: Helvetica, Arial, sans-serif;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      line-height: 1;
+      box-sizing: border-box;
+    }
+
+    .BP-Badge h6 {
+      text-transform: uppercase;
+      font-size: 10px;
+      margin: 0;
+      margin-bottom: 0;
+      font-weight: 700;
+    }
+    .BP-Badge span i {
+      color:rgba(47,47,48, 0.7);
+      padding-top: 4px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 10px;
+    }
+    .BP-Badge span {
+      line-height: 1.2;
+      font-weight: 100;
+      font-size: 16px;
+
+    }
+    .BP-Badge span,
+    .BP-Badge i {
+      display: block;
+    }
+
+    .BP-Badge .is-bp-point {
+      display: none;
+    }
+
+    {# create media queries for each breakpoint #}
+    {% for k, point in breakpoints %}
+      @media (min-width: {{loop.first ? '0px' : point}}) and (max-width: {{ loop.last ? max_breakpoint[k] : breakpoints[max_breakpoint[k]] }}){
+        .BP-Badge .is-point-{{k}} {
+          display: block;
+        }
+      }
+    {% endfor %}
+  </style>
+
+{% endif %}
