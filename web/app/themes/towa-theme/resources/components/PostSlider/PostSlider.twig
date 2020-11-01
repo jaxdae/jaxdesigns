@@ -1,0 +1,23 @@
+<section class="PostSlider" data-component="PostSlider">
+<div class="PostSlider__wrapper">
+<div class="PostSlider__left">
+<div class="PostSlider__number">01</div>
+<div class="PostSlider__hashtag">#{{section.hashtag}}</div>
+<div class="PostSlider__headline">The highlights of this project</div>
+<div class="PostSlider__content">Click through the slideshow to take a glance at all available photos of this project. Enjoy!</div>
+<div class="PostSlider__label">{{post.category}}</div></div>
+<div class="PostSlider__item">
+{% for slide in section.slides %}
+      <img class="PostSlider__img" src={{slide.sizes.i920x640}}>
+{% endfor %}
+</div>
+  <ul class="PostSlider__arrows">
+    <li class="PostSlider__arrow-item">
+      <button class="PostSlider__arrow-prev">Prev</button>
+    </li>
+    <li class="PostSlider__arrow-item">
+      <button class="PostSlider__arrow-next">Next</button>
+    </li>
+  </ul>
+  </div>
+</section>

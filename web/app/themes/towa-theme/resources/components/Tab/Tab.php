@@ -2,14 +2,13 @@
 namespace Towa\Components\Tab;
 
 use Towa\Acf\BaseSection;
-use Towa\Acf\Fields\Repeater;
 use Towa\Acf\Fields\Text;
 use Towa\Acf\Fields\Wysiwyg;
+use Towa\Acf\Fields\Repeater;
 
 class Tab extends BaseSection
 {
     public $name = 'Tab';
-
     public $view = 'components/Tab/Tab.twig';
 
     public function get_acf_fields($prefix = '')

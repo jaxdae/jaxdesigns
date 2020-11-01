@@ -1,0 +1,46 @@
+{
+  "component": {
+    "name": "HomeSlider",
+    "props": {}
+  },
+  "counter": "1",
+  "title": "Sektion: HomeSlider",
+  "slides": [
+    {
+      "title": "Slide 1",
+      "image": {
+        "sizes": {
+          "i1440x960": "https://dummyimage.com/1440x960/717271/fff",
+          "i960x960": "https://dummyimage.com/960x960/717271/fff",
+          "i480x480": "https://dummyimage.com/480x480/717271/fff"
+        },
+        "url": "./example.jpg",
+        "alt": "Alt Text"
+      }
+    },
+    {
+      "title": "Slide 2",
+      "image": {
+        "sizes": {
+          "i1440x960": "https://dummyimage.com/1440x960/a0a0a0/fff",
+          "i960x960": "https://dummyimage.com/960x960/a0a0a0/fff",
+          "i480x480": "https://dummyimage.com/480x480/717271/fff"
+        },
+        "url": "https://dummyimage.com/960x960/a0a0a0/fff",
+        "alt": "Alt Text"
+      }
+    },
+    {
+      "title": "Slide 3",
+      "image": {
+        "sizes": {
+          "i1440x960": "https://dummyimage.com/1440x960/aaa/fff",
+          "i960x960": "https://dummyimage.com/960x960/aaa/fff",
+          "i480x480": "https://dummyimage.com/480x480/717271/fff"
+        },
+        "url": "https://dummyimage.com/960x960/aaa/fff",
+        "alt": "Alt Text"
+      }
+    }
+  ]
+}

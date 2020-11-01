@@ -1,17 +1,15 @@
-@import '@styles/globals/_animations.scss';
-@import '@styles/globals/_elements.scss';
-@import '@styles/globals/_fonts.scss';
-@import '@styles/globals/_grid.scss';
-@import '@styles/globals/_colors.scss';
-@import '@styles/globals/_media-queries.scss';
+@import "~styles/elements";
+@import '~styles/fonts';
+@import '~styles/grid';
+@import '~styles/colors';
+@import '~styles/media-queries';
 
 .Tab {
   display: none;
 
   @include media('>=sm') {
-    @include grid-content;
-
     display: block;
+    @include grid-content;
   }
 
   &__items {
@@ -19,14 +17,13 @@
   }
 
   &__item {
+    flex: 1;
     @include element-base;
     @include element-clickable;
     @include font-micro;
-
-    flex: 1;
-    min-width: 0;
-    background-color: $color-white;
     border-color: $color-border;
+    background-color: $color-white;
+    min-width: 0;
     border-right: 0;
 
     &:last-of-type {
@@ -34,18 +31,13 @@
     }
 
     &--active {
-      color: $color-white;
       background-color: $color-brand;
-    }
-
-    &:hover,
-    &:focus {
-      cursor: pointer;
+      color: $color-white;
     }
   }
 
   &__wrapper {
-    margin-top: $grid-gutter-desktop * 2;
+    margin-top: $grid-gutter-desktop*2;
   }
 
   &__content {

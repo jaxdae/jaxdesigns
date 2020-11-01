@@ -1,12 +1,12 @@
 export default class Accordion {
   constructor(rootNode) {
     this.state = {
-      clickedIndex: 0,
+      clickedIndex: 0
     };
 
     this.refs = {
       rootNode,
-      items: [...rootNode.querySelector('.Accordion__items').children],
+      items: [...rootNode.querySelector(".Accordion__items").children]
     };
 
     this.setupListeners();
@@ -14,7 +14,7 @@ export default class Accordion {
 
   setupListeners() {
     this.refs.items.forEach((item, i) => {
-      item.addEventListener('click', () => {
+      item.addEventListener("click", () => {
         this.onItemClick(i);
       });
     });
@@ -22,7 +22,7 @@ export default class Accordion {
 
   onItemClick(clickedIndex) {
     this.setState({
-      clickedIndex,
+      clickedIndex
     });
   }
 
@@ -33,10 +33,13 @@ export default class Accordion {
 
   render() {
     this.refs.items.forEach((item, i) => {
-      if (this.state.clickedIndex === i && item.classList.contains('Accordion__item--open')) {
-        item.classList.remove('Accordion__item--open');
+      if (
+        this.state.clickedIndex === i &&
+        item.classList.contains("Accordion__item--open")
+      ) {
+        item.classList.remove("Accordion__item--open");
       } else if (this.state.clickedIndex === i) {
-        item.classList.add('Accordion__item--open');
+        item.classList.add("Accordion__item--open");
       }
     });
   }

@@ -2,15 +2,17 @@
 
 namespace Towa\Theme\Acf\Groups;
 
-use Towa\Components\Content\Content;
-use Towa\Components\Slider\Slider;
 use Towa\Theme\Cpt\Page;
 use Towa\Theme\Cpt\Post;
+use Towa\Components\Slider\Slider;
+use Towa\Components\Content\Content;
+use Towa\Components\HomeSlider\HomeSlider;
+use Towa\Components\About\About;
+use Towa\Components\PostContent\PostContent;
 
 class Sections
 {
     private $prefix = 'flexible_components_';
-
     private $name = 'sections';
 
     public function __construct($prefix = '')
@@ -40,7 +42,7 @@ class Sections
                         'param' => 'post_type',
                         'operator' => '==',
                         'value' => Post::NAME,
-                    ],
+                    ]
                 ],
                 [
                     [
@@ -64,8 +66,11 @@ class Sections
     private function get_sections()
     {
         $Sections = [
+            About::class,
             Content::class,
             Slider::class,
+            HomeSlider::class,
+            PostContent::class,
         ];
 
         return collect($Sections)->map(function ($Section) {

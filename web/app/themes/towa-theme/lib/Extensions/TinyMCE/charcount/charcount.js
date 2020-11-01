@@ -1,27 +1,27 @@
 /* eslint-disable */
 (function() {
   var charcount = (function() {
-    'use strict';
+    "use strict";
 
-    var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
+    var global = tinymce.util.Tools.resolve("tinymce.PluginManager");
 
     function decodeHtml(html) {
-      var txt = document.createElement('textarea');
+      var txt = document.createElement("textarea");
       txt.innerHTML = html;
       return txt.value;
     }
 
     var getCount = function(editor) {
       var tx = editor.getContent({
-        format: 'raw',
+        format: "raw"
       });
       var decoded = decodeHtml(tx);
-      var decodedStripped = decoded.replace(/(<([^>]+)>)/gi, '').trim();
+      var decodedStripped = decoded.replace(/(<([^>]+)>)/gi, "").trim();
       return decodedStripped.length;
     };
 
     var $_e3zt0csnjh8lz3i0 = {
-      getCount: getCount,
+      getCount: getCount
     };
 
     var get = function(editor) {
@@ -29,47 +29,54 @@
         return $_e3zt0csnjh8lz3i0.getCount(editor);
       };
       return {
-        getCount: getCount,
+        getCount: getCount
       };
     };
 
     var $_c38nf7smjh8lz3hz = {
-      get: get,
+      get: get
     };
 
     var getMaxLength = function(editor) {
       var current = editor.editorContainer;
 
-      // find nearest 'acf-field-wysiwyg' container of editor
-      // to check if max-length is set
-      do {
+      while (!current.classList.contains("acf-field-wysiwyg")) {
         current = current.parentNode;
-      } while (!current.classList.contains('wp-admin') && !current.classList.contains('acf-field-wysiwyg'));
-
-      var containsMaxClass = current.classList.value.indexOf('maxlength');
+      }
+      var containsMaxClass = current.classList.value.indexOf("maxlength");
 
       if (containsMaxClass >= 0) {
-        return ' / ' + current.classList.value.substring(containsMaxClass + 'maxlength--'.length);
+        return (
+          " / " +
+          current.classList.value.substring(
+            containsMaxClass + "maxlength--".length
+          )
+        );
       }
 
-      return '';
+      return "";
     };
 
-    var global$1 = tinymce.util.Tools.resolve('tinymce.util.Delay');
-    var global$2 = tinymce.util.Tools.resolve('tinymce.util.I18n');
+    var global$1 = tinymce.util.Tools.resolve("tinymce.util.Delay");
+    var global$2 = tinymce.util.Tools.resolve("tinymce.util.I18n");
 
     var setup = function(editor) {
       var checkMaxLength = function(editor) {
         return getMaxLength(editor);
       };
       var charsToText = function(editor) {
-        return global$2.translate(['{0}{1} Zeichen', $_e3zt0csnjh8lz3i0.getCount(editor), checkMaxLength(editor)]);
+        return global$2.translate([
+          "{0}{1} Zeichen",
+          $_e3zt0csnjh8lz3i0.getCount(editor),
+          checkMaxLength(editor)
+        ]);
       };
       var update = function() {
-        editor.theme.panel.find('#charcount').text(charsToText(editor));
+        editor.theme.panel.find("#charcount").text(charsToText(editor));
       };
-      editor.on('init', function() {
-        var statusbar = editor.theme.panel && editor.theme.panel.find('#statusbar')[0];
+      editor.on("init", function() {
+        var statusbar =
+          editor.theme.panel && editor.theme.panel.find("#statusbar")[0];
         var debouncedUpdate = global$1.debounce(update, 300);
         if (statusbar) {
           global$1.setEditorTimeout(
@@ -77,15 +84,18 @@
             function() {
               statusbar.insert(
                 {
-                  type: 'label',
-                  name: 'charcount',
+                  type: "label",
+                  name: "charcount",
                   text: charsToText(editor),
-                  classes: 'charcount',
-                  disabled: editor.settings.readonly,
+                  classes: "charcount",
+                  disabled: editor.settings.readonly
                 },
                 0
               );
-              editor.on('setcontent beforeaddundo undo redo keyup', debouncedUpdate);
+              editor.on(
+                "setcontent beforeaddundo undo redo keyup",
+                debouncedUpdate
+              );
             },
             0
           );
@@ -93,10 +103,10 @@
       });
     };
     var $_40dxcostjh8lz3ie = {
-      setup: setup,
+      setup: setup
     };
 
-    global.add('charcount', function(editor) {
+    global.add("charcount", function(editor) {
       $_40dxcostjh8lz3ie.setup(editor);
       return $_c38nf7smjh8lz3hz.get(editor);
     });

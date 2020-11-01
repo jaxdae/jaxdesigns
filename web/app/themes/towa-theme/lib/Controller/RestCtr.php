@@ -2,16 +2,15 @@
 
 namespace Towa\Theme\Controller;
 
-use Timber\Timber;
 use WP_Error;
+use Timber\Timber;
+use WP_REST_Server;
 use WP_REST_Request;
 use WP_REST_Response;
-use WP_REST_Server;
 
 class RestCtr
 {
     public $version;
-
     public $namespace;
 
     public function __construct()
@@ -34,17 +33,17 @@ class RestCtr
             [
                 'methods' => WP_REST_Server::READABLE,
                 'callback' => [$this, 'terms'],
-            ],
-        ]);
-
-        register_rest_route($this->namespace, '/posts/(?P<cpt>\w+)', [
-            [
-                'methods' => WP_REST_Server::READABLE,
-                'callback' => [$this, 'posts'],
+                'args' => [],
             ],
         ]);
     }
 
+    /**
+     * get terms by taxonomy
+     *
+     * @param WP_REST_Request $request
+     * @return WP_Error|WP_REST_Response
+     */
     public function terms(WP_REST_Request $request)
     {
         $response = [];
@@ -58,65 +57,17 @@ class RestCtr
         $response['terms'] = collect(Timber::get_terms([
             'taxonomy' => $taxonomy,
             'order' => 'DESC',
-        ]))
-            ->filter(function ($term) {
-                return $term->count;
-            })
-            ->map(function ($term) {
-                return [
-                    'id' => $term->ID,
-                    'name' => $term->name,
-                    'active' => false,
-                ];
-            })
-            ->prepend([
-                'id' => '*',
-                'name' => __('Alle ', 'towa') . get_post_type_object($cpt)->label,
-                'active' => true,
-            ])
-            ->toArray();
-
-        return new WP_REST_Response($response, 200);
-    }
-
-    public function posts(WP_REST_Request $request)
-    {
-        $response = [];
-        $cpt = $request->get_param('cpt');
-        $taxonomy = $request->get_param('taxonomy');
-        $term_id = $request->get_param('termId') ?: '*';
-        $offset = $request->get_param('offset');
-        $posts_per_page = $request->get_param('count') ?: 12;
-
-        if (! post_type_exists($cpt)) {
-            return new WP_Error('invalid_cpt', 'Invalid CPT Name', ['status' => 400]);
-        }
-
-        $args = [
-            'post_type' => $cpt,
-            'posts_per_page' => $posts_per_page,
-            'post_status' => 'publish',
-            'no_found_rows' => true,
-        ];
-
-        if ($term_id && $term_id !== '*') {
-            $args['tax_query'][] = [
-                'taxonomy' => $taxonomy,
-                'terms' => [$term_id],
+        ]))->map(function ($term) {
+            return [
+                'id' => $term->ID,
+                'name' => $term->name,
+                'active' => false,
             ];
-        }
-
-        if ($offset) {
-            $args['offset'] = $offset;
-        }
-
-        $posts = collect(Timber::get_posts($args))->map->transform;
-
-        if ($posts->count() < $posts_per_page) {
-            $response['done'] = true;
-        }
-
-        $response['posts'] = $posts->toArray();
+        })->prepend([
+            'id' => '*',
+            'name' => __('Alle ', 'towa') . get_post_type_object($cpt)->label,
+            'active' => true,
+        ])->toArray();
 
         return new WP_REST_Response($response, 200);
     }

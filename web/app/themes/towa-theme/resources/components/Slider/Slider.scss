@@ -1,95 +1,45 @@
-@import '~swiper/dist/css/swiper.min.css';
+@import "~slick-carousel/slick/slick";
+@import "~styles/colors";
+@import "~styles/utils";
+@import "~styles/icons";
 
 .Slider {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  background-image: url("./example.jpg");
+  background-size: cover;
+
   &__container {
-    position: relative;
-    max-width: $grid-width-content;
-    margin: 0 auto;
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: $color-brand;
 
-    @include media('>=lg') {
-      max-width: 1200px;
-    }
-  }
-  &__slide {
-    text-align: center;
-  }
-
-  .swiper-container {
-    position: static;
-
-    .swiper-pagination {
-      bottom: auto;
-      display: flex;
-      justify-content: center;
-      max-width: 210px;
-      margin: 25px auto;
-
-      @include util-center('x');
-    }
-  }
-
-  .swiper-pagination-bullets .swiper-pagination-bullet {
-    position: relative;
-    width: 40px;
-    height: 5px;
-    margin: 0 5px;
-    background-color: $color-link-hover;
-    border-radius: 0;
-
-    &::after {
-      width: 40px;
-      height: 40px;
-      content: '';
-
-      @include util-center();
-    }
-
-    &-active {
+    &:nth-child(2n) {
       background-color: $color-brand;
     }
   }
 
-  .swiper-button {
-    display: none;
-    overflow: visible;
+  &__img {
+    width: 100%;
+  }
+
+  &__arrows {
+    padding: 0;
+    list-style: none;
+  }
+
+  &__arrow-next,
+  &__arrow-prev {
+    @include util-center("y");
+
     font-size: 0;
-    background: none;
-    border: none;
-
-    @include util-center('y');
-
-    @include media('>=md') {
-      display: block;
-    }
 
     &::before {
       @include icon-font;
 
-      font-size: 40px;
-      color: $color-brand;
+      font-size: 20px;
     }
-
-    &-next {
-      right: -$grid-gutter-phone;
-      transform: translateX(100%);
-
-      &::before {
-        content: $icon-arrow-right;
-      }
-    }
-
-    &-prev {
-      left: -$grid-gutter-phone;
-      transform: translateX(-200%);
-
-      &::before {
-        content: $icon-arrow-left;
-      }
-    }
-  }
-
-  &__picture,
-  &__img {
-    max-width: 100%;
   }
 }

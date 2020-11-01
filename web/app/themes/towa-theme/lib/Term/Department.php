@@ -9,7 +9,6 @@ use Towa\Theme\Cpt\Person;
 class Department extends Term
 {
     public const NAME = 'department';
-
     public const CPTS = [Person::NAME, Page::NAME];
 
     private $fetch_id;

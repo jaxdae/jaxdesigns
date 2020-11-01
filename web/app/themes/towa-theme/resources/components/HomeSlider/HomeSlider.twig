@@ -1,0 +1,36 @@
+<section class="HomeSlider" data-component="HomeSlider">
+   <div class="HomeSlider__item">
+    {% for slide in featured %}
+     <div class="HomeSlider__left">
+      <div class="HomeSlider__overlay"></div>
+      {% if loop.index0 > 0 %}
+      <img class="HomeSlider__img" src={{slide.image.url}}>
+      {% else %}
+      <img class="HomeSlider__img" src={{welcome.url}}>
+      {% endif %}
+      <div class="HomeSlider__plusses"></div>
+      <div class="HomeSlider__contentAll">
+       <div class="HomeSlider__label">{{slide.category}}</div>
+      <a class="HomeSlider__prelink" href={{slide.guid}}><h1 class="HomeSlider__headline">{{slide.title}}</h1></a>
+      <div class="HomeSlider__content">{{slide.abstract}}</div>
+      <div class="HomeSlider__link">View Categories</div>
+      <div class="HomeSlider__number"><span class="HomeSlider__number01" id="slide">01</span>/<span class="HomeSlider__number02" id="slide2">05</span></div>
+      </div>
+   </div>
+    {% endfor %}
+  </div>
+  {# <div class="HomeSlider__search"></div> #}
+  <div class="HomeSlider__sidebar">
+    <div class="HomeSlider__number_right"></div>
+    </div>
+    <div class="HomeSlider__scrolltext">Scroll</div>
+  <ul class="HomeSlider__arrows">
+    <li class="HomeSlider__arrow-item">
+      <button class="HomeSlider__arrow-prev">Prev</button>
+    </li>
+    <li class="HomeSlider__arrow-item">
+      <button class="HomeSlider__arrow-next">Next</button>
+    </li>
+  </ul>
+
+</section>

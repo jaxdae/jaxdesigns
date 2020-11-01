@@ -9,6 +9,10 @@ class Assets
     public function __construct()
     {
         $this->initialize_actions();
+
+        if (is_development_stage()) {
+            $this->built = file_exists(get_template_directory() . '/dist/main.css');
+        }
     }
 
     private function initialize_actions()
@@ -26,19 +30,23 @@ class Assets
 
     private function register_styles()
     {
-        wp_enqueue_style('towa-style', mix('css/main.css'), [], null);
+        if ($this->built) {
+            wp_enqueue_style('towa-style', PATH_DIST . 'main.css', [], filemtime(get_theme_file_path('/dist/main.css')));
+        }
     }
 
     private function register_scripts()
     {
         $bundleServer = $this->built ? PATH_DIST : 'http://localhost:8080/';
 
-        wp_enqueue_script('towa-bundle', mix('js/main.js'), [], null, true);
+        wp_enqueue_script('towa-bundle', $bundleServer . 'bundle.js', [], filemtime(get_theme_file_path('/dist/bundle.js')), true);
     }
 
     public function add_editor_styles()
     {
-        add_editor_style(mix('css/main.css'));
+        if ($this->built) {
+            add_editor_style(PATH_DIST . 'main.css');
+        }
     }
 
     private function add_global_variables_to_component_loader()
@@ -48,13 +56,6 @@ class Assets
                 'dist' => get_template_directory_uri() . '/dist',
             ],
             'stage' => get_stage(),
-            'restTerms' => esc_url(home_url() . '/wp-json/towa/v1/terms/'),
-            'restCpt' => esc_url(home_url() . '/wp-json/towa/v1/posts/'),
-        ]);
-
-        wp_localize_script('towa-bundle', 'api', [
-            'terms' => esc_url(home_url() . '/wp-json/towa/v1/terms/'),
-            'posts' => esc_url(home_url() . '/wp-json/towa/v1/posts/'),
         ]);
     }
 }

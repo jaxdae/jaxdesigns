@@ -1,0 +1,60 @@
+@import './colors';
+
+// As specified in Material Design guidelines
+$shadow-key-umbra-opacity: 0.2;
+$shadow-key-penumbra-opacity: 0.14;
+$shadow-ambient-shadow-opacity: 0.12;
+
+$shadow-map-key-umbra-opacity: 0.1;
+$shadow-map-key-penumbra-opacity: 0.1;
+$shadow-map-ambient-shadow-opacity: 0.1;
+
+
+@mixin shadow-2($offsetX: 0, $additional: 0 0 0 transparent) {
+  box-shadow: $offsetX 2px 2px 0 rgba($color-shadow, $shadow-key-penumbra-opacity),
+    $offsetX 3px 1px -2px rgba($color-shadow, $shadow-key-umbra-opacity),
+    $offsetX 1px 5px 0 rgba($color-shadow, $shadow-ambient-shadow-opacity),
+    $additional;
+}
+
+@mixin shadow-3($offsetX: 0, $additional: 0 0 0 transparent) {
+  box-shadow: $offsetX 3px 4px 0 rgba($color-shadow, $shadow-key-penumbra-opacity),
+    $offsetX 3px 3px -2px rgba($color-shadow, $shadow-key-umbra-opacity),
+    $offsetX 1px 8px 0 rgba($color-shadow, $shadow-ambient-shadow-opacity),
+    $additional;
+}
+
+@mixin shadow-4($offsetX: 0, $additional: 0 0 0 transparent) {
+  box-shadow: $offsetX 4px 5px 0 rgba($color-shadow, $shadow-key-penumbra-opacity),
+    $offsetX 1px 10px 0 rgba($color-shadow, $shadow-ambient-shadow-opacity),
+    $offsetX 2px 4px -1px rgba($color-shadow, $shadow-key-umbra-opacity),
+    $additional;
+}
+
+@mixin shadow-6($offsetX: 0, $additional: 0 0 0 transparent) {
+  box-shadow: $offsetX 6px 10px 0 rgba($color-shadow, $shadow-key-penumbra-opacity),
+    $offsetX 1px 18px 0 rgba($color-shadow, $shadow-ambient-shadow-opacity),
+    $offsetX 3px 5px -1px rgba($color-shadow, $shadow-key-umbra-opacity),
+    $additional;
+}
+
+@mixin shadow-8($offsetX: 0, $additional: 0 0 0 transparent) {
+  box-shadow: $offsetX 8px 10px 1px rgba($color-shadow, $shadow-key-penumbra-opacity),
+    $offsetX 3px 14px 2px rgba($color-shadow, $shadow-ambient-shadow-opacity),
+    $offsetX 5px 5px -3px rgba($color-shadow, $shadow-key-umbra-opacity),
+    $additional;
+}
+
+@mixin shadow-16($offsetX: 0, $additional: 0 0 0 transparent) {
+  box-shadow: $offsetX 16px 24px 2px rgba($color-shadow, $shadow-key-penumbra-opacity),
+    $offsetX 6px 30px 5px rgba($color-shadow, $shadow-ambient-shadow-opacity),
+    $offsetX  8px 10px -5px rgba($color-shadow, $shadow-key-umbra-opacity),
+    $additional;
+}
+
+@mixin shadow-24($offsetX: 0, $additional: 0 0 0 transparent) {
+  box-shadow: $offsetX  9px 46px  8px rgba($color-shadow, $shadow-map-key-penumbra-opacity),
+    $offsetX 11px 15px -7px rgba($color-shadow, $shadow-map-ambient-shadow-opacity),
+    $offsetX 24px 38px  3px rgba($color-shadow, $shadow-map-key-umbra-opacity),
+    $additional;
+}

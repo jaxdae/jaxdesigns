@@ -11,9 +11,7 @@ use Towa\Acf\Fields\Image as FImage;
 class Image extends BaseSection
 {
     public $name = 'Image';
-
     public $view = 'components/Image/Image.twig';
-
     private $key;
 
     /**
@@ -37,7 +35,7 @@ class Image extends BaseSection
             'sub_fields' => [
                 (new FImage($this->get_key(), 'image', 'Bild'))->build([
                     'required' => true,
-                ]),
+                ])
             ],
         ];
     }

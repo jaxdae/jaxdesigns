@@ -1,59 +1,44 @@
-@import '@styles/globals/_animations.scss';
-@import '@styles/globals/_colors';
-@import '@styles/globals/_elements';
-@import '@styles/globals/_fonts';
-@import '@styles/globals/_hover';
-@import '@styles/globals/_grid';
-@import '@styles/globals/_icons';
-@import '@styles/globals/_media-queries';
-@import '@styles/globals/_wysiwyg';
+@import "~styles/animations";
+@import "~styles/colors";
+@import "~styles/elements";
+@import "~styles/fonts";
+@import "~styles/grid";
+@import "~styles/icons";
+@import "~styles/media-queries";
+@import "~styles/wysiwyg";
 
-.Accordion {
-  @include grid-content;
-
-  &--invisible-desktop {
-    @include media('>=sm') {
-      display: none;
+.Accordion { 
+  background: $color-bg;
+  display: flex;
+  justify-content: center;
+  padding-left: 300px;
+  padding-bottom: 90px;
+    a{
+      transition: ease all 0.3s;
+    color: white;
+    font-size: 10px;
+    letter-spacing: 1px;
+    line-height: 12px;
+    font-family: rubik;
+    text-transform: uppercase;
+    width: 700px;
+    z-index: 1;
+    margin-bottom: 25px;
+    padding: 11px 15px 10px 15px;
+    width: auto;
+    border: 0.5px solid #ffffff;
+    border-radius: 25.5px;
+    display: inline-block;
+    margin-top:30px;
+    &:hover{
+      background: white;
+      color: $color-bg;
     }
   }
-
-  &__wrapper {
-    @include animation-slow;
-
-    max-height: 0;
-    border: 1px solid $color-transparent;
-    border-top: 0;
+  &__items {
+    max-width: 970px;
   }
-
-  &__wysiwyg {
-    @include wysiwyg;
-    @include animation-slow;
-
-    padding: $grid-gutter-phone;
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(-10px);
-
-    @include media('>=sm') {
-      padding: $grid-gutter-tablet;
-    }
-
-    @include media('>=lg') {
-      padding: $grid-gutter-desktop;
-    }
-  }
-
   &__item {
-    margin-bottom: $grid-gutter-phone;
-
-    @include media('>=sm') {
-      margin-bottom: $grid-gutter-tablet;
-    }
-
-    @include media('>=lg') {
-      margin-bottom: $grid-gutter-desktop;
-    }
-
     &--open {
       .Accordion__wrapper {
         max-height: 500px;
@@ -68,22 +53,40 @@
   }
 
   &__title {
-    @include element-base;
-    @include element-clickable;
-    @include font-micro($color-white);
-
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include element-base;
     width: 100%;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-white;
 
     &::after {
+      content: "\e903";
       @include icon-font;
-
-      font-size: 30px;
-      line-height: 0;
       color: $color-white;
-      content: $icon-angle-down;
+      font-size: 18px;
+      line-height: 0;
+      padding-right: 10px;
     }
+  }
+
+  &__wrapper {
+    max-height: 0;
+    @include animation-slow;
+  }
+
+  &__wysiwyg {
+    @include font-text(#9b9b9b);
+    color: #9b9b9b;
+    padding-right: 120px;
+    padding-bottom: 20px;
+    // @include wysiwyg;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    @include animation-slow;
   }
 }

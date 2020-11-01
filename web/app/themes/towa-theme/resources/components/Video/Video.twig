@@ -1,15 +1,19 @@
-<video-module
-  player-id="player-{{ section_id(counter) }}"
-  video-id="{{ video_id }}"
-  :image="{{ image | json_encode | e }}"
->
-  {% if caption or caption_bold %}
-    <figcaption class="Video__caption">
-      {% if caption_bold %}
-        <b class="Video__caption-bold">{{ caption_bold }}</b>
-      {% endif %}
-
-      {{ caption }}
-    </figcaption>
-  {% endif %}
-</video-module>
+<div class="centering">
+<section class="Video" data-component="Video">
+  <div class="Video__wrapper">
+    <iframe class="Video__item" src="https://www.youtube.com/embed/{{ video_id }}?rel=0&modestbranding=1{% if do_autoplay %}&autoplay=1{% endif %}" frameborder="0"></iframe>
+    {% if not autoplay %}
+      <picture class="Video__picture">
+      <div class="Video__hover"></div>
+        <source media="(max-width: 480px)" srcset="{{ image.sizes.i480x270 }}">
+        <source media="(max-width: 768px)" srcset="{{ image.sizes.i768x432 }}">
+        
+        <img class="Video__image" src="{{ image.sizes.i920x640 }}" alt="{{ image.alt }}"/>
+      </picture>
+      <div class="Video__buttonwrapper">
+      <button class="Video__overlay Video__blur"></button>
+      <div class="Video__title">Watch Video</div>
+      </div>
+    {% endif %}
+  </div>
+</section></div>

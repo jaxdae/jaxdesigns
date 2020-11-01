@@ -4,11 +4,12 @@ namespace Towa\Theme\Acf\Groups;
 
 use Towa\Acf\Fields\Tab;
 use Towa\Acf\Fields\Wysiwyg;
+use Towa\Acf\Fields\Image;
+use Towa\Acf\Fields\Link;
 
 class WSOptions
 {
     private $prefix = 'website_options';
-
     private $name = 'website_options';
 
     public function __construct($prefix = '')
@@ -25,7 +26,17 @@ class WSOptions
             'title' => 'Website Optionen',
             'fields' => [
                 (new Tab($this->prefix, 'tab_general', 'Allgemein'))->build(),
-                // add your options here
+                (new Image($this->prefix, 'logo', 'Logo'))->build(),
+                (new Link($this->prefix, 'home', 'Home'))->build(),
+                (new Link($this->prefix, 'imprint', 'Impressum'))->build(),
+                (new Link($this->prefix, 'contact', 'Kontakt'))->build(),
+                (new Link($this->prefix, 'privacy', 'Datenschutzerklärung'))->build(),
+                (new Link($this->prefix, 'about', 'About'))->build(),
+                (new Link($this->prefix, 'portfolio', 'Portfolio'))->build(),
+                (new Image($this->prefix, 'commentimage', 'Kommentar Bild'))->build(),
+                 
+
+
 
                 (new Tab($this->prefix, 'tab_contact', 'Kontaktdaten'))->build(),
                 // add your options here

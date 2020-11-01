@@ -1,0 +1,27 @@
+<section class="PostGrid" data-component="PostGrid" id="PostGrid">
+<div class="PostGrid__filterwrapper">
+
+<span class="PostGrid__filter PostGrid__active" data-filter="*">All</span>
+<span class="PostGrid__filter" data-filter=".Furniture">Furniture & Co.</span>
+<span class="PostGrid__filter" data-filter=".Sewing">Sewing</span>
+<span class="PostGrid__filter" data-filter=".Decorations">Decorations</span>
+<span class="PostGrid__filter" data-filter=".Bullet">Bullet Journal</span>
+<span class="PostGrid__filter" data-filter=".Furniture">Woodworking</span>
+<div class="PostGrid__filterarrow"></div></div>
+<div>
+<div class="PostGrid__on PostGrid__wrapper">
+  {% for slide in posts %}
+  <a href="http://jaxdesigns.test/{{slide.slug}}" class="PostGrid__item {{slide.category}}">
+  <div class="PostGrid__card">
+  <div class="PostGrid__imgwrapper">
+  <img class="PostGrid__img" src={{slide.image.sizes.i480x480}}></img>
+  </div>
+<h1 class="PostGrid__title">{{slide.post_title}}</h1>
+<div class="PostGrid__category">{{slide.category}}</div>
+</div>
+</a>
+  {% endfor %}
+ </div>
+  </div>
+  <div class="PostGrid__load-more">Older posts</div>
+</section>

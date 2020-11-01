@@ -12,10 +12,10 @@ class AcfCtr
     public function register_groups()
     {
         $Groups = [
+            DefaultHero::class,
             Sections::class,
             WSOptions::class,
-            DefaultHero::class,
-            Person::class,
+           // Person::class,
         ];
 
         array_walk($Groups, function ($Group) {

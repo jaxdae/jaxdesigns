@@ -41,7 +41,7 @@ class Support
         ]);
 
         add_action('wp_dashboard_setup', function () {
-            remove_meta_box('wpseo-dashboard-overview', 'dashboard', 'side');
+            //remove_meta_box('wpseo-dashboard-overview', 'dashboard', 'side');
         });
     }
 

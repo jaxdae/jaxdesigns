@@ -3,18 +3,24 @@
 namespace Towa\Components\Content;
 
 use Towa\Acf\BaseSection;
-use Towa\Components\Accordion\Accordion;
-use Towa\Components\Blockquote\Blockquote;
-use Towa\Components\Downloads\Downloads;
-use Towa\Components\Image\Image;
 use Towa\Components\Tab\Tab;
+use Towa\Components\Image\Image;
 use Towa\Components\Video\Video;
 use Towa\Components\Wysiwyg\Wysiwyg;
+use Towa\Components\Accordion\Accordion;
+use Towa\Components\Downloads\Downloads;
+use Towa\Components\Blockquote\Blockquote;
+use Towa\Components\PostGrid\PostGrid;
+use Towa\Components\PostIntro\PostIntro;
+use Towa\Components\PostImages\PostImages;
+use Towa\Components\PostInstructions\PostInstructions;
+use Towa\Components\PostSlider\PostSlider;
+
+
 
 class Content extends BaseSection
 {
     public $name = 'Content';
-
     public $view = 'resources/components/Content/Content.twig';
 
     public function get_acf_fields($prefix = '')
@@ -40,12 +46,15 @@ class Content extends BaseSection
     {
         $Sections = [
             Accordion::class,
-            Downloads::class,
             Image::class,
             Tab::class,
             Video::class,
             Wysiwyg::class,
-            Blockquote::class,
+            PostGrid::class,
+            PostIntro::class,
+            PostImages::class,
+            PostInstructions::class,
+            PostSlider::class,
         ];
 
         return collect($Sections)->map(function ($Section) {

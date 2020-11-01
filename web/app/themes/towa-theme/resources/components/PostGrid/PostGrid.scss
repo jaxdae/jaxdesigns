@@ -1,0 +1,239 @@
+@import "~styles/colors";
+@import "~styles/icons";
+@import "~styles/fonts";
+
+.PostGrid {
+  z-index: 1;
+  position: relative;
+  padding: 30px 0;
+  margin-bottom: 180px;
+  background: $color-bg;
+  @include media(">=xs") {
+    padding: 60px 0;
+  }
+  @include media(">=lg") {
+    padding: 90px 0;
+  }
+  &__filterarrow {
+    z-index: 3;
+    cursor: pointer;
+    transition: ease all 0.3s;
+    position: absolute;
+    right: 20px;
+    top: 0px;
+    @include media(">=md") {
+      &::after {
+        display: none;
+      }
+    }
+    &::after {
+      @include icon-font;
+      content: "\e906";
+      color: $color-white;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+  &__filterwrapper {
+    position: absolute;
+    z-index: 2;
+    width: calc(100% - 120px);
+    display: block;
+    margin: 0 20px 0 20px;
+    padding: 0 15px 0 15px;
+    background: #282828;
+    border-radius: 25.5px;
+    justify-content: center;
+    @include media(">=sm") {
+      margin-left: 100px;
+    }
+    @include media(">=md") {
+      position: relative;
+      background: none;
+      padding: 11px 15px 10px 15px;
+      display: flex;
+      margin-left: 80px;
+    }
+  }
+  &__filter {
+    display: none;
+    color: $color-white;
+    padding: 5px;
+    font-size: 10px;
+    font-family: Poppins;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+    &::before {
+      opacity: 0;
+      transition: 0.2s ease-in-out;
+      content: "";
+      background: white;
+      width: 80%;
+      margin-left: 10%;
+      height: 1px;
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+    }
+    @include media(">=md") {
+      text-transform: initial;
+      letter-spacing: initial;
+      font-weight: 600;
+      font-size: 16px;
+      display: block;
+      padding: 15px;
+      &:hover {
+        &::before {
+          opacity: 1;
+          bottom: 15px;
+        }
+      }
+    }
+  }
+
+  &__wrapper {
+    max-width: 1440px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 15px;
+    grid-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    @include media(">=sm") {
+      padding: 15px 15px 0 95px;
+    }
+  }
+
+  &__imgwrapper {
+    max-height: 320px;
+    overflow: hidden;
+  }
+
+  &__hidden {
+    display: none;
+  }
+
+  &__card {
+    background: #282828;
+    height: 500px;
+    min-width: 280px;
+    margin: 5px;
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 0px;
+    flex: 1 1 0;
+    overflow: hidden;
+
+    &:hover img {
+      transform: scale(1.1);
+      transition: all 0.5s ease;
+    }
+
+    &:hover.PostGrid__card::after {
+      transition: all 0.5s ease;
+      transform: translateX(10px);
+    }
+
+    &::after {
+      transition: all 0.5s ease;
+      @include icon-font;
+      content: "\e901";
+      color: $color-white;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: 25px;
+      font-weight: 600;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    transition: all 0.5s ease;
+  }
+
+  &__category {
+    color: white;
+    display: inline;
+    @include font-label;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    padding: 10px 15px 10px 15px;
+    border: 0.5px solid #ffffff;
+    border-radius: 25.5px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__title {
+    padding: 25px;
+    color: $color-white;
+    font-family: Poppins;
+    font-size: 14px;
+    letter-spacing: 1.4px;
+    line-height: 21px;
+  }
+
+  &__active {
+    display: block;
+    @include media(">=md") {
+      &::before {
+        opacity: 1;
+        content: "";
+        background: white;
+        width: 80%;
+        margin-left: 10%;
+        height: 1px;
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+      }
+    }
+  }
+
+  &__off {
+    display: none;
+  }
+
+  &__load-more {
+    margin-top: 10px;
+    color: #9b9b9b;
+    font-family: Rubik;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: justify;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    @include media(">=xs") {
+      margin-top: 45px;
+    }
+    @include media(">=sm") {
+      margin-left: 80px;
+      margin-top: 50px;
+    }
+    @include media(">=lg") {
+      margin-top: 90px;
+    }
+    &::before {
+      transform: rotate(180deg);
+      transition: ease all 0.5s;
+      @include icon-font;
+      font-weight: bold;
+      font-size: 18px;
+      content: "\e901";
+      color: #9b9b9b;
+      position: relative;
+      top: -4px;
+      left: -20px;
+    }
+    &:hover::before {
+      color: $color-white;
+      left: -30px;
+    }
+  }
+}

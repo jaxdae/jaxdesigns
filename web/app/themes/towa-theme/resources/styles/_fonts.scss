@@ -1,0 +1,118 @@
+@import "colors";
+@import "media-queries";
+@import "utils";
+
+// fonts
+$font-family-sans-serif: Poppins, sans-serif !default;
+$font-family-serif: Rubik, sans-serif !default;
+
+// semantic fonts
+$font-family-headline: $font-family-sans-serif;
+$font-family-base: $font-family-sans-serif;
+
+@mixin font-h1($color: $color-headline) {
+  font-family: Poppins;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 40px;
+  @include media(">=xs") {
+    font-size: 42px;
+    line-height: 50px;
+  }
+  @include media(">=sm") {
+    font-size: 52px;
+    line-height: 60px;
+  }
+  @include media(">=md") {
+    font-size: 62px;
+    line-height: 80px;
+  }
+}
+
+@mixin font-h2($color: $color-headline) {
+  font-family: Rubik;
+  font-size: 12px;
+  line-height: 20px;
+  @include media(">=xs") {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  @include media(">=sm") {
+    font-size: 15px;
+    line-height: 28px;
+  }
+}
+@mixin font-label() {
+  font-size: 10px;
+  letter-spacing: 1px;
+  line-height: 12px;
+  font-family: rubik;
+  text-transform: uppercase;
+}
+@mixin font-link() {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+@mixin font-h3($color: $color-headline) {
+  font-family: Rubik;
+  font-size: 10px;
+  line-height: 25px;
+  @include media(">=xs") {
+    font-size: 13px;
+    line-height: 25px;
+  }
+}
+
+@mixin font-h4($color: $color-headline) {
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+@mixin font-h5($color: $color-headline) {
+  font-family: $font-family-headline;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: $color;
+
+  @include media(">=xl") {
+    font-size: 18px;
+  }
+}
+
+@mixin font-text($color: $color-text) {
+  color: $color-text;
+  font-family: Rubik;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+@mixin font-micro($color: $color-white) {
+  font-family: $font-family-base;
+  font-size: 11px;
+  line-height: 17px;
+  color: $color;
+  text-transform: uppercase;
+
+  @include media(">=sm") {
+  }
+}
+
+@mixin font-blockquote($color: $color-brand) {
+  font-family: $font-family-base;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: $color;
+
+  @include media(">=md") {
+    font-size: 20px;
+  }
+  @include media(">=xl") {
+    font-size: 22px;
+  }
+}

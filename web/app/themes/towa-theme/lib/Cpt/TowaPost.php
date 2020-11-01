@@ -13,21 +13,6 @@ abstract class TowaPost extends Post
         parent::__construct($pid);
     }
 
-    public function transform()
-    {
-        return [
-            'id' => $this->id,
-            'link' => $this->link,
-            'title' => $this->post_title,
-            'image' => $this->image(),
-        ];
-    }
-
-    public function image()
-    {
-        return $this->fetch_field('image');
-    }
-
     protected function fetch_field($name)
     {
         if (! isset($this->$name)) {
@@ -37,18 +22,13 @@ abstract class TowaPost extends Post
         return $this->$name;
     }
 
-    protected function primary_category($taxonomy = 'category')
+    public function teaser_image()
     {
-        if (! class_exists('WPSEO_Primary_Term')) {
-            return false;
-        }
+        return $this->fetch_field('teaser_image');
+    }
 
-        $term = (new WPSEO_Primary_Term($taxonomy, $this->id))->get_primary_term();
-
-        if (! $term) {
-            $term = collect($this->terms($taxonomy))->first();
-        }
-
-        return $term ? get_term($term)->name : '';
+    public function teaser_text()
+    {
+        return $this->fetch_field('teaser_text');
     }
 }

@@ -1,15 +1,19 @@
-<section class="Slider">
-  {% if slides|length == 1 %}
-    <div class="Slider__container">
-      {% include path.components ~ 'Slider/Slide.twig' with {slide:slides.0} %}
-    </div>
-  {% else %}
-    <slider with-pagination with-navigation>
-      <template v-slot:slides>
-        {% for slide in slides %}
-          {% include path.components ~ 'Slider/Slide.twig' with slide %}
-        {% endfor %}
-      </template>
-    </slider>
-  {% endif %}
+<section class="Slider" data-component="Slider">
+  <div class="Slider__item">
+    {% for slide in slides %}
+      <picture class="Slider__container">
+        <img src="{{ path.images }}/example.jpg" alt="{{ slide.image.alt }}" class="Slider__img">
+        <img src="{{ path.images }}/example2.jpg" alt="{{ slide.image.alt }}" class="Slider__img">
+      </picture>
+    {% endfor %}
+  </div>
+
+  <ul class="Slider__arrows">
+    <li class="Slider__arrow-item">
+      <button class="Slider__arrow-prev">Prev</button>
+    </li>
+    <li class="Slider__arrow-item">
+      <button class="Slider__arrow-next">Next</button>
+    </li>
+  </ul>
 </section>

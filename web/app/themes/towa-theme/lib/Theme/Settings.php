@@ -6,21 +6,16 @@ class Settings
 {
     public function __construct()
     {
-        $this->hideAdminBar();
+        $this->hide_admin_bar();
         $this->acf();
-        $this->personalizedAdminArea();
-        $this->redirectAfterLogin();
-        $this->addTinyMCESettings();
-        $this->setBlogPublicSetting();
+        $this->personalized_login_area();
+        $this->redirect_after_login();
+        $this->tiny_mce_settings();
     }
 
-    public function hideAdminBar()
+    public function hide_admin_bar()
     {
-        if (is_user_logged_in()) {
-            show_admin_bar(env('SHOW_ADMIN_BAR')?: false);
-        } else {
-            show_admin_bar(false);
-        }
+        show_admin_bar(env('SHOW_ADMIN_BAR')?: false);
     }
 
     public function acf()
@@ -30,14 +25,14 @@ class Settings
         });
     }
 
-    public function redirectAfterLogin()
+    public function redirect_after_login()
     {
         add_filter('login_redirect', function ($url, $query, $user) {
             return admin_url('edit.php?post_type=page');
         }, 10, 3);
     }
 
-    public function addTinyMCESettings()
+    public function tiny_mce_settings()
     {
         add_filter('mce_buttons', function () {
             return [
@@ -71,12 +66,12 @@ class Settings
         });
     }
 
-    private function personalizedAdminArea()
+    private function personalized_login_area()
     {
         add_action('login_head', function () {
             echo '<style type="text/css">
                     .login h1 a {
-                        background-image: url(' . get_bloginfo('template_directory') . '/resources/assets/img/towa.png) !important;
+                        background-image: url(' . get_bloginfo('template_directory') . '/resources/assets/img/Favico.png) !important;
                         background-size: contain;
                         margin-bottom: 25px;
                         width: 100%;
@@ -86,17 +81,5 @@ class Settings
                     }
                 </style>';
         });
-    }
-
-    /**
-     * Sets the `blog_public` setting for the website.
-     *
-     * Based on if it's a non-production stage, the value is set to false (0) or true (1) if it's the production stage.
-     *
-     * @return void
-     */
-    private function setBlogPublicSetting()
-    {
-        update_option('blog_public', (int) is_production_stage());
     }
 }

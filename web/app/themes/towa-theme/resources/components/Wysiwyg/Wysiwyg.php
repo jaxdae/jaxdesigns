@@ -8,7 +8,6 @@ use Towa\Acf\Fields\Wysiwyg as WysiwygField;
 class Wysiwyg extends BaseSection
 {
     public $name = 'Wysiwyg';
-
     public $view = 'resources/components/Wysiwyg/Wysiwyg.twig';
 
     public function get_acf_fields($prefix = '')

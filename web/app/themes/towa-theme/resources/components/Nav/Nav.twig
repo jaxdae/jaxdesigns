@@ -1,8 +1,0 @@
-<navigation :nav="{{nav|json_encode|e}}" :slug={{post.slug|json_encode|e}} >
-    <template v-slot:logo>
-        <a class="Nav__logo" href="{{ site.url }}" title="{{__('zur Startseite','towa')}}">
-            <img src="{{ path.dist }}/static/DefaultLogo.svg" alt="{{__('Logo','towa')}}"/>
-        </a>
-    </template>
-</navigation>
-

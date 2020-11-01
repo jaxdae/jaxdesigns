@@ -1,0 +1,24 @@
+<section class="About" data-component="About">
+  <div class="About__item About__bg">
+     <div class="About__left">
+      <div class="About__overlay"></div>
+      <img class="About__img" src={{portrait.sizes.i920x920}}>
+      <div class="HomeSlider__plusses"></div>
+      <div class="About__contentAll">
+      <a class="About__back" href="http//:jaxdesigns.test">Back</a>
+      {% if chooser == 'About' %}
+      <h1 class="About__headline">I’m a front-end developer based in Germany</h1>
+      <div class="About__content">{{description}}</div>
+      {% elseif chooser == 'Imprint' %}
+      <h1 class="About__headline">Imprint</h1>
+      <div class="About__content">{{text}}</div>
+      {% elseif chooser == 'Privacy Policy' %}
+      <h1 class="About__headline">Privacy Policy</h1>
+      <div class="About__content">{{text}}</div>
+      {% endif %}
+      </div>
+   </div>
+  </div>
+  </ul>
+
+</section>

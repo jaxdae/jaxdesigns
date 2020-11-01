@@ -9,7 +9,7 @@ class CptCtr
     public function register_cpts()
     {
         $Cpts = [
-            // Person::class,
+             //Person::class,
         ];
 
         array_walk($Cpts, function ($Cpt) {

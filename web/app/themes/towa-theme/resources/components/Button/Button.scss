@@ -1,9 +1,4 @@
-@import '@styles/globals/_animations.scss';
-@import '@styles/globals/_buttons.scss';
-@import '@styles/globals/_colors.scss';
-@import '@styles/globals/_elements.scss';
-@import '@styles/globals/_fonts.scss';
-@import '@styles/globals/_media-queries.scss';
+@import "~styles/buttons";
 
 .Button {
   @include button;

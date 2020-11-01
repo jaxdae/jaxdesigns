@@ -1,9 +1,4 @@
-@import '@styles/globals/_grid.scss';
-@import '@styles/globals/_media-queries.scss';
+@import "~styles/grid";
 
 .Content {
-  @include grid-width;
-  @include grid-space;
-
-  width: auto;
 }

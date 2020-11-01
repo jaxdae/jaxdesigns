@@ -1,12 +1,12 @@
 export default class Tab {
   constructor(rootNode) {
     this.state = {
-      activeIndex: 0,
+      activeIndex: 0
     };
     this.refs = {
       rootNode,
-      tabs: [...rootNode.querySelector('.Tab__items').children],
-      content: [...rootNode.querySelector('.Tab__wrapper').children],
+      tabs: [...rootNode.querySelector(".Tab__items").children],
+      content: [...rootNode.querySelector(".Tab__wrapper").children]
     };
 
     this.setupListeners();
@@ -15,7 +15,7 @@ export default class Tab {
 
   setupListeners() {
     this.refs.tabs.forEach((item, i) => {
-      item.addEventListener('click', () => {
+      item.addEventListener("click", () => {
         this.onTabClick(i);
       });
     });
@@ -34,17 +34,17 @@ export default class Tab {
   render() {
     this.refs.tabs.forEach((item, i) => {
       if (this.state.activeIndex === i) {
-        item.classList.add('Tab__item--active');
+        item.classList.add("Tab__item--active");
       } else {
-        item.classList.remove('Tab__item--active');
+        item.classList.remove("Tab__item--active");
       }
     });
 
     this.refs.content.forEach((item, i) => {
       if (this.state.activeIndex === i) {
-        item.classList.add('Tab__content--active');
+        item.classList.add("Tab__content--active");
       } else {
-        item.classList.remove('Tab__content--active');
+        item.classList.remove("Tab__content--active");
       }
     });
   }

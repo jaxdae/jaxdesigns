@@ -1,17 +1,15 @@
-@import '@styles/globals/_grid.scss';
-@import '@styles/globals/_media-queries.scss';
+@import '~styles/grid';
 
 .Image {
   @include grid-content;
 
   &__item {
     display: block;
-    width: grid-span(12);
     max-width: grid-span(12);
+    width: grid-span(12);
 
     @include media('>=md') {
       width: auto;
-      margin: auto;
     }
   }
 }

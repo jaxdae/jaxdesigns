@@ -1,11 +1,12 @@
-@import 'fonts';
-
-html {
-  scroll-behavior: smooth;
-}
+@import "fonts";
 
 body {
-  @include font-text;
-
   overflow-x: hidden;
+  @include font-text;
+  background: $color-bg;
+}
+
+main {
+  position: relative;
+  z-index: 4;
 }

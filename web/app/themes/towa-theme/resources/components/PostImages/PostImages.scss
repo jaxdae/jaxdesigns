@@ -1,0 +1,113 @@
+@import "~slick-carousel/slick/slick";
+@import "~styles/colors";
+@import "~styles/utils";
+@import "~styles/icons";
+@import "~styles/fonts";
+
+.PostImages {
+  background: $color-bg;
+  justify-content: center;
+  display: flex;
+  padding-left: 80px;
+  &__wrapper {
+    max-width: 1200px;
+    flex-flow: row nowrap;
+    display: -webkit-box;
+
+    &-1 {
+      overflow: hidden;
+      margin-right: 30px;
+      &:hover .PostImages__image-1 {
+        transform: scale(1.05);
+      }
+      &:hover .PostImages__overlay-1 {
+        opacity: 1;
+      }
+    }
+    &-2 {
+      overflow: hidden;
+      &:hover .PostImages__image-2 {
+        transform: scale(1.05);
+      }
+      &:hover .PostImages__overlay-2 {
+        opacity: 1;
+      }
+    }
+    &-1,
+    &-2 {
+      position: relative;
+      width:50%;
+    }
+  }
+  &__image {
+    transition: ease all 0.3s;
+    width:100%;
+  }
+  &__overlay {
+    cursor: pointer;
+    transition: ease all 0.3s;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(40, 40, 40, 0.7);
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    position: absolute;
+    z-index: 3;
+    top: 15px;
+    left: 15px;
+    color: $color-white;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 32px;
+
+    &::after {
+      font-size: 24px;
+      color: $color-white;
+      @include icon-font;
+      content: "\e903";
+      font-weight: 600;
+      padding-left: 10px;
+    }
+  }
+  &__fullscreen{
+    transition: ease all 0.6s;
+    opacity:0;
+    pointer-events: none;
+    background:$color-bg;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:10;
+    margin:auto;
+    text-align: center;
+    margin-left:40px;
+    &-wrapper{
+      width:1440px;
+      height:810px;
+    position: absolute;
+   @include util-center;
+    &::after {
+      font-size: 24px !important;
+      color: $color-white;
+      @include icon-font;
+      content: "\e903";
+      transform: rotate(45deg);
+      font-weight: 600;
+      padding: 20px;
+      position: absolute;
+      right:10px;
+      top:10px;
+      cursor: pointer;
+    }
+    }
+    &-image-1, &-image-2{
+      display:none;
+      @include util-center;
+    }
+  }
+}

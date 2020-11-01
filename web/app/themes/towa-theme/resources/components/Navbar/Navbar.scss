@@ -1,0 +1,113 @@
+@import "~styles/colors";
+@import "~styles/fonts";
+@import "~styles/gradients";
+@import "~styles/grid";
+@import "~styles/utils";
+@import "~styles/media-queries";
+@import "~styles/icons";
+
+.Navbar {
+  display: none;
+  position: absolute;
+  z-index: 100;
+
+  @include media(">=sm") {
+    display: block;
+  }
+
+  a {
+    transition: ease all 0.4s;
+  }
+  a:hover {
+    color: $color-light-gray;
+  }
+  &__wrapper {
+    color: $color-white;
+    background-color: $color-bg;
+    width: 80px;
+    height: 100vh;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    position: fixed;
+    @include font-micro;
+  }
+
+  &__menu {
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+  }
+
+  &__links {
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    display: flex;
+    transform: translateX(-50%) rotate(-90deg);
+  }
+
+  &__portfolio {
+    position: relative;
+    top: -5px;
+    padding-left: 15px;
+    &::after {
+      position: relative;
+      top: 1px;
+      @include icon-font;
+      content: "\e905";
+      font-size: 18px;
+      padding-left: 15px;
+    }
+  }
+
+  &__sharelink {
+    //visibility: hidden;
+    transform: translateX(-50%) rotate(-90deg);
+    position: absolute;
+  }
+
+  &__sharelink_twitter {
+    bottom: 90px;
+    left: 50%;
+    &::before {
+      @include icon-font;
+      content: "\e909";
+      font-size: 18px;
+    }
+  }
+
+  &__sharelink_pinterest {
+    left: 50%;
+    bottom: 60px;
+    &::before {
+      @include icon-font;
+      content: "\e908";
+      font-size: 18px;
+    }
+  }
+
+  &__sharelink_facebook {
+    bottom: 120px;
+    left: 50%;
+    &::before {
+      @include icon-font;
+      content: "\e90b";
+      font-size: 18px;
+    }
+  }
+  &__icons {
+    position: absolute;
+    bottom: 85px;
+    left: 42px;
+  }
+  &__share {
+    width: 150px;
+    cursor: pointer;
+    padding: 20px 0;
+    transform: translateX(-50%) rotate(-90deg);
+    position: absolute;
+    bottom: 85px;
+    left: 47%;
+    letter-spacing: 3px;
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,35 @@
+@import "~slick-carousel/slick/slick";
+@import "~styles/colors";
+@import "~styles/utils";
+@import "~styles/icons";
+@import "~styles/fonts";
+
+.PostIntro {
+  display: flex;
+  justify-content: center;
+  background: $color-bg;
+
+  &__wrapper {
+    margin: 90px 0 90px 80px;
+    display: flex;
+    max-width: 1200px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__headline {
+    font-family: Poppins;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 48px;
+    color: $color-white;
+    //margin: 30px 0 0 110px;
+    width: 500px;
+  }
+  &__abstract {
+    color: #9b9b9b;
+    font-family: Rubik;
+    font-size: 14px;
+    line-height: 25px;
+  }
+}

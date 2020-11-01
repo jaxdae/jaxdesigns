@@ -1,0 +1,14 @@
+@import "animations";
+@import "colors";
+
+@mixin hover-link() {
+  @include animation-fast-in-slow-out;
+
+  &:hover {
+    color: $color-link-hover;
+  }
+}
+
+@mixin hover-image() {
+  overflow: hidden;
+}

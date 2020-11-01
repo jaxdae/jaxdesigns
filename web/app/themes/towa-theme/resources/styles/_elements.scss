@@ -1,0 +1,19 @@
+@import "animations";
+@import "colors";
+
+@mixin element-base() {
+  min-width: 220px;
+  padding: 20px 0;
+  border-top: 1px solid #404040;
+  box-sizing: border-box;
+  background-color: $color-bg;
+}
+
+@mixin element-clickable {
+  @include animation-slow;
+
+  &:hover {
+    border-color: $color-element-hover;
+    background-color: $color-element-hover;
+  }
+}

@@ -1,0 +1,79 @@
+@import "~styles/colors";
+@import "~styles/fonts";
+@import "~styles/gradients";
+@import "~styles/grid";
+@import "~styles/utils";
+@import "~styles/media-queries";
+
+.Footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  img {
+    width: 60px;
+    height: 60px;
+
+    @include media(">=sm") {
+      position: absolute;
+      left: 60px;
+    }
+    @include media(">=md") {
+      width: 60px;
+      height: 60px;
+      position: initial;
+    }
+  }
+  background: #141414;
+  color: #9b9b9b;
+  height: 180px;
+  @include font-h3;
+  @include media(">=sm") {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+  }
+  &__inner {
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+    @include media(">=sm") {
+      height: 80px;
+      position: relative;
+      top: 50px;
+    }
+    @include media(">=md") {
+      position: initial;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+      top: 0;
+    }
+  }
+
+  &__link {
+    transition: ease all 0.3s;
+    padding: 0 5px;
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+  &__right,
+  &__left {
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 10px;
+
+    @include media(">=md") {
+      display: block;
+      width: auto;
+    }
+  }
+}

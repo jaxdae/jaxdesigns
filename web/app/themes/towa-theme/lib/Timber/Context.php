@@ -25,7 +25,7 @@ class Context
 
     private function add_stage_info($data)
     {
-        $data['env'] = [
+        $data[ 'env' ] = [
             'env' => get_stage(),
             'is_production_stage' => is_production_stage(),
             'is_test_stage' => is_test_stage(),
@@ -36,9 +36,10 @@ class Context
         return $data;
     }
 
+
     private function add_paths($data)
     {
-        $data['path'] = [
+        $data[ 'path' ] = [
             'dist' => PATH_THEME . '/dist',
             'css' => PATH_CSS,
             'fonts' => PATH_FONTS,
@@ -57,7 +58,7 @@ class Context
 
     private function add_menues($data)
     {
-        $data['primary_menu'] = (new TimberMenu('primary'))->get_items();
+        $data[ 'primary_menu' ] = new TimberMenu('primary');
 
         return $data;
     }
@@ -71,14 +72,7 @@ class Context
 
     private function add_breakpoints($data)
     {
-        $data['breakpoints'] = Media::$breakpoints;
-
-        return $data;
-    }
-
-    private function add_ie11($data)
-    {
-        $data['is_ie11'] = strpos($_SERVER['HTTP_USER_AGENT'], 'Trident/7.0; rv:11.0') !== false;
+        $data[ 'breakpoints' ] = Media::$breakpoints;
 
         return $data;
     }

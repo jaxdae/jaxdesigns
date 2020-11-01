@@ -1,0 +1,81 @@
+<section class="Comments">
+<div class="Comments__outer-wrapper">
+<div class="Comments__right">
+{% if post.get_comment_count() > 0 %}
+  {% for comment in post.comments %}
+<div class="Comments__wrapper">
+<img class="Comments__image" src={{option.commentimage.url}}></img>
+<div class="Comments__comment" id="comment-{{comment.id}}">
+{# <div class="Comments__reply Comments__button">{{ comment.reply_link }}</div> #}
+
+<div class="Comments__author">{{comment.author.name}}</div>
+<div class="Comments__date">{{comment.date}}</div>
+<div class="Comments__text">{{comment.content}}</div>
+</div>
+</div>
+ {% if comment.children() %}
+      {% for reply in comment.children() %}
+      <div>
+       <div class="Comments__reply-wrapper">
+       {% if reply.comment_author_email == 'jaekie.daehn@googlemail.com'%}
+<img class="Comments__reply-image" src={{option.logo.url}}></img>
+{% else %}
+<img class="Comments__image" src={{option.commentimage.url}}></img>
+{% endif %}
+<div id="comment-{{ comment.id}}" class="Comments__comment comment even thread-even depth-1 parent comment-body">
+{# {{ comment.reply_link }} #}
+<div class="Comments__author">{{reply.author}}</div>
+<div class="Comments__date">{{reply.date}}</div>
+<div class="Comments__text">{{ reply.content }}</div>
+</div>
+</div>
+
+{% if reply.children() %}
+{% for item in reply.children() %}
+<div class="Comments__reply-reply-wrapper">
+  {% if item.comment_author_email == 'jaekie.daehn@googlemail.com'%}
+<img class="Comments__reply-image" src={{option.logo.url}}></img>
+{% else %}
+<img class="Comments__image" src={{option.commentimage.url}}></img>
+{% endif %}
+<div class="Comments__comment">
+<div class="Comments__author">{{item.comment_author}}</div>
+<div class="Comments__date">{{item.comment_date}}</div>
+<div class="Comments__text">{{ item.comment_content }}</div>
+</div></div>
+{% endfor %}
+{% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+</div>
+</div>
+<div class="comment-form Comments__outer-wrapper">
+    <h3 class="Comments__author Comments__new-headline">Post a comment</h3>
+    <form class="comment-form" method="post" action="{{ site.site_url~'/wp-comments-post.php' }}">
+        {% if  user %}
+            <input type="hidden" name="email" value="{{ user.email }}">
+            <input type="hidden" name="author" value="{{ user.name }}">
+            <input type="hidden" name="url" value="{{ user.link }}">
+        {% else %}
+            <label class="Comments__text">Name*<br>
+                <input required name="author" type="text">
+            </label>
+            <label class="Comments__text">E-Mail<br>
+                <input required name="email" type="email" id="email">
+            </label>
+            <label class="Comments__text">Website<br>
+                <input name="url" type="url">
+            </label>
+        {% endif %}
+        <label class="Comments__text">Comment<br>
+            <textarea class="Comments__input" placeholder="Leave a comment..." name="comment" cols="60" rows="3"></textarea>
+        </label>
+        <input name="comment_post_ID" value="{{ post.id }}" type="hidden">
+        <input name="comment_parent"  value="{{ comment.ID|default('0') }}" type="hidden">
+        <button type="submit" name="Submit" class="btn Comments__button">Send</button>
+        <button type="reset" class="Comments__button Comments__reply">Cancel</button>
+    </form>
+</div>
+</section>

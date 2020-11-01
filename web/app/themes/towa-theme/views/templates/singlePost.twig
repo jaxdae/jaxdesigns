@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--[if (IE 9) ]>
+<html class="no-js ie-9" lang="{{ site.language }}"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="{{ site.language }}"><!--<![endif]-->
+ {% include get_relative_path( 'partials/head.twig' ) %}
+
+  <body class="{{ body_class }}">
+    {% if env.is_production_stage %}
+        <!-- going to add google tag manager via website-options here -->
+    {% endif %}
+
+    {% include get_relative_path( 'partials/browser-message.twig' ) %}
+    {% include get_relative_path( 'partials/breakpoint-label.twig' ) %}
+    {% include path.components ~ 'Navbar/Navbar.twig' %}
+    {% include path.components ~ 'PostContent/PostContent.twig' %}
+
+    <main>
+      {% block content %}
+        {% include get_relative_path( 'partials/loop-sections.twig' ) %}
+        {% include path.components ~ 'Comments/Comments.twig' %}
+      {% endblock %}
+    </main>
+
+    {% include path.components ~ 'Footer/Footer.twig' %}
+    {% include get_relative_path( 'partials/footer.twig' ) %}
+  </body>
+</html>

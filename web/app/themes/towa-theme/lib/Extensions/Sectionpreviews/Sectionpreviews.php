@@ -5,9 +5,7 @@ namespace Towa\Theme\Extensions\Sectionpreviews;
 class Sectionpreviews
 {
     private $previews;
-
     private $components_path;
-
     private $img_suffix;
 
     public function __construct()
@@ -27,11 +25,10 @@ class Sectionpreviews
                 ) {
                     return [
                         'path' => $this->components_path . $section . '/' . $section . $this->img_suffix,
-                        'name' => $section,
+                        'name' => $section
                     ];
                 }
             }
-
             return '';
         })->filter();
 
@@ -51,7 +48,7 @@ class Sectionpreviews
         wp_localize_script('towa-previews', 'vars', [
             'sections' => $this->previews,
             'sectionImgSuffix' => $this->img_suffix,
-            'componentsPath' => \PATH_THEME.'/resources/components/',
+            'componentsPath' => \PATH_THEME.'/resources/components/'
         ]);
 
         wp_enqueue_style(

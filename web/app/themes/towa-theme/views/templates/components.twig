@@ -2,20 +2,16 @@
 {% import _self as frontend %}
 
 {% block content %}
-  {{ frontend.include_component('Nav', path) }}
-  {{ frontend.include_component('DefaultHero', path) }}
-
-  <section>
+  
+  <main>
     <div class="Content">
       {{ frontend.include_component('Wysiwyg', path) }}
-      {{ frontend.include_component('Blockquote', path) }}
       {{ frontend.include_component('Accordion', path) }}
       {{ frontend.include_component('Tab', path) }}
-      {{ frontend.include_component('Downloads', path) }}
       {{ frontend.include_component('Image', path) }}
       {{ frontend.include_component('Video', path) }}
     </div>
-  </section>
+  </main>
 {% endblock %}
 
 {% macro include_component(name, path) %}
